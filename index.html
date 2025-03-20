@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Home</title>
+    <style>
+        /* Modern Color Palette - Teals and Greens */
+        :root {
+            --primary: #4e8b8b;
+            --primary-light: #6e9b9c;
+            --primary-dark: #1d362e;
+            --accent: #94a47c;
+            --gray-dark: #445c5b;
+            --gray: #5d7b7c;
+            --gray-light: #e9f0f0;
+            --white: #FFFFFF;
+            --black: #212121;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--gray-dark);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Typography */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            color: var(--gray-dark);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .logo a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+        }
+        
+        nav ul li a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: none;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: var(--white);
+            position: relative;
+            margin-top: 0;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(29,54,46,0) 30%, rgba(78,139,139,0.9) 100%);
+            z-index: -1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/Hero Image for HIC.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            margin-left: 15px;
+        }
+        
+        /* Featured Section */
+        .featured {
+            background-color: var(--white);
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .featured-item {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-img-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-item:hover .featured-img {
+            transform: scale(1.05);
+        }
+        
+        .featured-content {
+            padding: 25px;
+        }
+        
+        .featured-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--gray-dark);
+        }
+        
+        .featured-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .featured-tag {
+            background-color: var(--gray-light);
+            color: var(--gray);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .featured-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        
+        .featured-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--gray-light);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 4px solid var(--primary);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: inline-block;
+            padding: 20px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 50%;
+            line-height: 1;
+        }
+        
+        .skill-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--gray-dark);
+        }
+        
+        .skill-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .btn-cta {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-cta:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 20px;
+            color: var(--gray-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--gray-light);
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode header {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode header.scrolled {
+            background-color: #1a1a1a;
+        }
+        
+        body.dark-mode .logo a {
+            color: var(--primary-light);
+        }
+        
+        body.dark-mode nav ul li a {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode nav ul li a:hover,
+        body.dark-mode nav ul li a.active {
+            color: var(--primary-light);
+        }
+        
+        body.dark-mode nav ul li a::after {
+            background-color: var(--primary-light);
+        }
+        
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .featured-item,
+        body.dark-mode .skill-card {
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode .featured-content h3 {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .featured-content p,
+        body.dark-mode .skill-description {
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .featured-tag {
+            background-color: #2a2a2a;
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .skills {
+            background-color: #151515;
+        }
+        
+        body.dark-mode .theme-toggle {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .theme-toggle:hover {
+            background-color: #2a2a2a;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+             
+            nav ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 20px 0;
+                border-radius: 10px;
+                width: 200px;
+                transform: translateY(20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 12px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            body.dark-mode nav ul {
+                background-color: #1a1a1a;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--gray-light);
+            padding: 50px 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: var(--gray-dark);
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .copyright p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">My Portfolio</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><button class="theme-toggle" id="theme-toggle">🌓</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animated">Brandon Summerlin</h1>
+                <p class="animated delay-200">Computer Science Student & Part time AI fanatic focused on AI tools and development at Kent State University</p>
+                <div class="animated delay-400">
+                    <a href="projects.html" class="btn">View My Work</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="featured-grid">
+                <div class="featured-item animated">
+                    <div class="featured-img-container">
+                        <img src="images/Obj Rec for HIC Projects.jpg" alt="Object Detection System" class="featured-img">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-tags">
+                            <span class="featured-tag">Computer Vision</span>
+                            <span class="featured-tag">Deep Learning</span>
+                            <span class="featured-tag">TensorFlow</span>
+                        </div>
+                        <h3>Object Detection System</h3>
+                        <p>A real-time computer vision system that identifies and tracks objects in video streams using deep learning models with high accuracy and efficiency.</p>
+                        <a href="https://github.com/Item-Quest/TeamBravo/tree/AI-Brandon" class="featured-link" target="_blank">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-container">
+                <div class="skill-card animated">
+                    <div class="skill-icon">💻</div>
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p class="skill-description">Creating intuitive and accessible interfaces with a focus on user experience and interaction design principles.</p>
+                </div>
+                <div class="skill-card animated delay-200">
+                    <div class="skill-icon">🔍</div>
+                    <h3 class="skill-title">User Research</h3>
+                    <p class="skill-description">Conducting comprehensive usability tests and gathering meaningful user feedback to inform design decisions.</p>
+                </div>
+                <div class="skill-card animated delay-400">
+                    <div class="skill-icon">⚙️</div>
+                    <h3 class="skill-title">Transfer Learning</h3>
+                    <p class="skill-description">Integrating pre-trained models to improve the performance of machine learning models on new tasks.</p>
+                </div>
+                <div class="skill-card animated delay-600">
+                    <div class="skill-icon">🧠</div>
+                    <h3 class="skill-title">HCI Principles</h3>
+                    <p class="skill-description">Applying cognitive psychology and human factors research to create interfaces that align with users' mental models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Let's Collaborate</h2>
+            <p>I'm currently available for internships and collaborative projects in Data Science, Machine Learning, andHuman-Computer Interaction and interface development.</p>
+            <a href="contact.html" class="btn btn-cta">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="https://github.com/SummerlinCodes" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/brandon-summerlin-35179a318/?trk=opento_sprofile_goalscard" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: bsummerl@kent.edu</p>
+                    <p>Kent State University</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p> 2025 My Portfolio - Created for CS 32301 Human Interface Computing</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved user preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save user preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '';
+            }
+        });
+        
+        // Highlight active page in navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else if (currentPage === '' && link.getAttribute('href') === 'index.html') {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
