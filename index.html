@@ -187,7 +187,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/Hero Image for HIC.jpg') center/cover no-repeat;
+            background: url('images/Updated Hero Image.png') center/cover no-repeat;
             z-index: -2;
         }
         
@@ -220,7 +220,7 @@
             border: 2px solid var(--primary);
             font-size: 1rem;
             letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);  
         }
         
         .btn:hover {
@@ -488,6 +488,10 @@
             color: #e0e0e0;
         }
         
+        body.dark-mode .featured {
+            background-color: #121212;
+        }
+        
         body.dark-mode .featured-item,
         body.dark-mode .skill-card {
             background-color: #1a1a1a;
@@ -500,12 +504,12 @@
         
         body.dark-mode .featured-content p,
         body.dark-mode .skill-description {
-            color: #b0b0b0;
+            color: #d0d0d0;
         }
         
         body.dark-mode .featured-tag {
             background-color: #2a2a2a;
-            color: #b0b0b0;
+            color: #d0d0d0;
         }
         
         body.dark-mode .skills {
@@ -700,7 +704,7 @@
                         </div>
                         <h3>Object Detection System</h3>
                         <p>A real-time computer vision system that identifies and tracks objects in video streams using deep learning models with high accuracy and efficiency.</p>
-                        <a href="https://github.com/Item-Quest/TeamBravo/tree/AI-Brandon" class="featured-link" target="_blank">View Project →</a>
+                        <a href="https://github.com/Item-Quest/TeamBravo/tree/AI-Brandon" class="featured-link" target="_blank" rel="noopener">View Project →</a>
                     </div>
                 </div>
             </div>
@@ -761,8 +765,8 @@
                 <div class="footer-section">
                     <h3>Connect</h3>
                     <ul>
-                        <li><a href="https://github.com/SummerlinCodes" target="_blank">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/brandon-summerlin-35179a318/?trk=opento_sprofile_goalscard" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/SummerlinCodes" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/brandon-summerlin-35179a318/?trk=opento_sprofile_goalscard" target="_blank" rel="noopener">LinkedIn</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -772,7 +776,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p> 2025 My Portfolio - Created for CS 32301 Human Interface Computing</p>
+                <p> 2025 My Portfolio - Brandon Summerlin</p>
             </div>
         </div>
     </footer>
@@ -802,7 +806,9 @@
         // Check for saved user preference
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            themeToggle.textContent = '';
+            themeToggle.textContent = '🌞';
+        } else {
+            themeToggle.textContent = '🌓';
         }
         
         themeToggle.addEventListener('click', () => {
@@ -811,10 +817,10 @@
             // Save user preference
             if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '';
+                themeToggle.textContent = '🌞';
             } else {
                 localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '';
+                themeToggle.textContent = '🌓';
             }
         });
         
