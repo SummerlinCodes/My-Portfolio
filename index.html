@@ -508,10 +508,35 @@
         }
         
         body.dark-mode .featured-tag {
-            background-color: #2a2a2a;
-            color: #d0d0d0;
+            background-color: #2d3748;
+            color: #e2e8f0;
         }
         
+        /* Dark mode footer styles */
+        body.dark-mode footer {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .footer-section h3 {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .footer-section a,
+        body.dark-mode .footer-section p {
+            color: #cbd5e0;
+        }
+        
+        body.dark-mode .footer-section a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        body.dark-mode .copyright p {
+            color: #a0aec0;
+        }
+        
+        /* Make sure the skills section has proper contrast in dark mode */
         body.dark-mode .skills {
             background-color: #151515;
         }
@@ -667,6 +692,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resume/Updated Resume (for my portfolio).pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
                     <li><button class="theme-toggle" id="theme-toggle">🌓</button></li>
                 </ul>
             </nav>
@@ -692,19 +718,54 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="featured-grid">
+                <!-- Project 1 -->
                 <div class="featured-item animated">
                     <div class="featured-img-container">
-                        <img src="images/Obj Rec for HIC Projects.jpg" alt="Object Detection System" class="featured-img">
+                        <img src="images/Obj Rec for HIC Projects.jpg" alt="Computer Vision Object Detection" class="featured-img">
                     </div>
                     <div class="featured-content">
                         <div class="featured-tags">
-                            <span class="featured-tag">Computer Vision</span>
-                            <span class="featured-tag">Deep Learning</span>
+                            <span class="featured-tag">Python</span>
                             <span class="featured-tag">TensorFlow</span>
+                            <span class="featured-tag">Computer Vision</span>
                         </div>
-                        <h3>Object Detection System</h3>
-                        <p>A real-time computer vision system that identifies and tracks objects in video streams using deep learning models with high accuracy and efficiency.</p>
-                        <a href="https://github.com/SummerlinCodes/TeamBravo/tree/main" class="featured-link" target="_blank" rel="noopener">View Project →</a>
+                        <h3>Computer Vision Object Detection</h3>
+                        <p>Created a real-time object detection model using deep learning and transfer learning methods. Utilized TensorFlow's pretrained models to identify and track objects in video streams with high accuracy and adaptability in different lighting conditions.</p>
+                        <a href="https://github.com/SummerlinCodes/TeamBravo/tree/main" class="featured-link" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Juno Assistant -->
+                <div class="featured-item animated delay-200">
+                    <div class="featured-img-container">
+                        <img src="images/Juno Stack Image.jpeg" alt="Juno AI Assistant" class="featured-img">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-tags">
+                            <span class="featured-tag">Python</span>
+                            <span class="featured-tag">NLP</span>
+                            <span class="featured-tag">AI</span>
+                        </div>
+                        <h3>Juno AI Assistant</h3>
+                        <p>An advanced personal AI assistant that helps with task management, scheduling, and information retrieval. Features natural language processing and integration with various productivity tools to enhance daily workflow and organization.</p>
+                        <a href="https://github.com/SPL-Personal-AI-Assistant/Juno-Assistant" class="featured-link" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 - AI Personalized Tutor -->
+                <div class="featured-item animated delay-400">
+                    <div class="featured-img-container">
+                        <img src="images/AI Tutor Image.jpeg" alt="AI Personalized Tutor" class="featured-img">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-tags">
+                            <span class="featured-tag">Machine Learning</span>
+                            <span class="featured-tag">Education</span>
+                            <span class="featured-tag">Web App</span>
+                        </div>
+                        <h3>AI Personalized Tutor</h3>
+                        <p>A personalized learning platform that uses AI to adapt to individual learning styles and pace. The system provides customized lessons, tracks progress, and offers targeted exercises to improve understanding in various subjects.</p>
+                        <a href="https://github.com/SummerlinCodes/AI-Final-Project--Personalized-Tutor" class="featured-link" target="_blank" rel="noopener noreferrer">View Project →</a>
                     </div>
                 </div>
             </div>
@@ -756,9 +817,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
+                        <li><a href="resume/Updated Resume (for my portfolio).pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
